@@ -1,5 +1,5 @@
 # Postaw-na-milijon
-Projket z programowanka - dodatkowy termin
+# Projket z programowanka - dodatkowy termin
 
 from tkinter import *
 import tkinter as tk
