@@ -1,0 +1,24 @@
+def gra():
+    kasa_gracza = 1000000
+    for i in range(4):
+        if kasa_gracza == 0:
+            break
+        zapadnia_1 = 0       # w pierwszej zapadni zawsze dobra odpowiedź
+        zapadnia_2 = 0
+        zapadnia_3 = 0
+        zapadnia_4 = 0
+        kasa_gracza = zapadnia_1
+    for i in range(3):
+        if kasa_gracza == 0:
+            break
+        zapadnia_1 = 0
+        zapadnia_2 = 0
+        zapadnia_3 = 0
+        zapadnia_4 = 0
+        kasa_gracza = zapadnia_1
+    if kasa_gracza == 0:
+        zapadnia_1 = 0           
+        zapadnia_2 = 0
+        kasa_gracza = zapadnia_1
+    if kasa_gracza > 0:
+        print("Gratuluję wygrałeś")
