@@ -3,6 +3,7 @@ Projket z programowanka - dodatkowy termin
 
 from tkinter import *
 import tkinter as tk
+import random
 
 glowne_okno = tk.Tk()
 glowne_okno.title("Postaw na miljon")
@@ -64,7 +65,7 @@ def gra():
     for i in range(4):
         if kasa_gracza == 0:
             break
-        zapadnia_1 = 0
+        zapadnia_1 = 0          # zapadni pierwszej będziemy przypisywać poprawną odpowiedź i potem losować jego pozycje
         zapadnia_2 = 0
         zapadnia_3 = 0
         zapadnia_4 = 0
