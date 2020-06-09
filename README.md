@@ -1,2 +1,2 @@
 # Postaw-na-milijon
-Projket z programowanka - dodatkowy termin
+# Projket z programowanka - dodatkowy termin
