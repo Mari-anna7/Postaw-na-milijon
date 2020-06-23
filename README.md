@@ -97,7 +97,7 @@ B = Jesiotra
 
 Jak Ci poszło?
 A = M E G A +
-B = źle :((((
+B = źle :(((
 
 
 
