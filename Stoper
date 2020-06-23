@@ -1,0 +1,38 @@
+##### STOPER
+from tkinter import *
+import tkinter as tk
+
+
+class Timer(tk.Tk):
+
+    def __init__(self):
+        tk.Tk.__init__(self)
+        self.label = tk.Label( text = "1:00", font = ("Comic Sans", 30), fg = "blue" )
+        self.label.place(relx=0, rely=0)
+        self.remaining = 0
+        self.odliczanie(60)
+
+    def odliczanie(self, remaining = None):
+        if remaining is not None:
+            self.remaining = remaining
+
+        if self.remaining <= 0:
+            self.label.configure(text = "Czas upłynął!")
+        else:
+            self.label.configure(text = "%d" % self.remaining)
+            self.remaining = self.remaining - 1
+            self.after(1000, self.odliczanie)
+
+
+glowne_okno = tk.Tk()
+glowne_okno.title("Postaw na miljon")
+glowne_okno.geometry("900x650")
+
+czas_tytul = Label(glowne_okno, text = "Czas:", fg = "blue")
+czas_tytul.place(x= 0.8, y= 0.5)
+
+stoper = Timer()
+stoper = Label(glowne_okno)
+stoper.place(relx=0.10, rely=0.10, relwidth=0.15, relheight=0.15)
+
+glowne_okno.mainloop()
