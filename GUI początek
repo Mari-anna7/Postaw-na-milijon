@@ -29,14 +29,17 @@ def gra():
     if kasa_gracza > 0:
         print("Gratuluję wygrałeś")
 
+
 def akcja_plusik1():
     global kasa_gracza
     global kasa_zapadnia1
-    if kasa_gracza>0 and kasa_zapadnia2==0 or kasa_zapadnia3==0 or kasa_zapadnia4==0:
-        kasa_gracza-=25000
-        kasa_do_rozlozenia.config(text = kasa_gracza)
-        kasa_zapadnia1+=25000
-        kasa_na_zapadni1.config(text = kasa_zapadnia1)
+    if kasa_gracza>0:
+        if kasa_zapadnia2==0 or kasa_zapadnia3==0 or kasa_zapadnia4==0:
+            kasa_gracza-=25000
+            kasa_do_rozlozenia.config(text = kasa_gracza)
+            kasa_zapadnia1+=25000
+            kasa_na_zapadni1.config(text = kasa_zapadnia1)
+
 
 def akcja_minusik1():
     global kasa_gracza
@@ -51,11 +54,12 @@ def akcja_minusik1():
 def akcja_plusik2():
     global kasa_gracza
     global kasa_zapadnia2
-    if kasa_gracza>0 and kasa_zapadnia1==0 or kasa_zapadnia3==0 or kasa_zapadnia4==0:
-        kasa_gracza-=25000
-        kasa_do_rozlozenia.config(text = kasa_gracza)
-        kasa_zapadnia2+=25000
-        kasa_na_zapadni2.config(text = kasa_zapadnia2)
+    if kasa_gracza>0:
+        if kasa_zapadnia1==0 or kasa_zapadnia3==0 or kasa_zapadnia4==0:
+            kasa_gracza-=25000
+            kasa_do_rozlozenia.config(text = kasa_gracza)
+            kasa_zapadnia2+=25000
+            kasa_na_zapadni2.config(text = kasa_zapadnia2)
 
 def akcja_minusik2():
     global kasa_gracza
@@ -71,11 +75,12 @@ def akcja_minusik2():
 def akcja_plusik3():
     global kasa_gracza
     global kasa_zapadnia3
-    if kasa_gracza>0 and kasa_zapadnia2==0 or kasa_zapadnia1==0 or kasa_zapadnia4==0:
-        kasa_gracza-=25000
-        kasa_do_rozlozenia.config(text = kasa_gracza)
-        kasa_zapadnia3+=25000
-        kasa_na_zapadni3.config(text = kasa_zapadnia3)
+    if kasa_gracza>0:
+        if kasa_zapadnia2==0 or kasa_zapadnia1==0 or kasa_zapadnia4==0:
+            kasa_gracza-=25000
+            kasa_do_rozlozenia.config(text = kasa_gracza)
+            kasa_zapadnia3+=25000
+            kasa_na_zapadni3.config(text = kasa_zapadnia3)
 
 def akcja_minusik3():
     global kasa_gracza
@@ -91,11 +96,12 @@ def akcja_minusik3():
 def akcja_plusik4():
     global kasa_gracza
     global kasa_zapadnia4
-    if kasa_gracza>0 and kasa_zapadnia2==0 or kasa_zapadnia3==0 or kasa_zapadnia1==0:
-        kasa_gracza-=25000
-        kasa_do_rozlozenia.config(text = kasa_gracza)
-        kasa_zapadnia4+=25000
-        kasa_na_zapadni4.config(text = kasa_zapadnia4)
+    if kasa_gracza>0:
+        if kasa_zapadnia2==0 or kasa_zapadnia3==0 or kasa_zapadnia1==0:
+            kasa_gracza-=25000
+            kasa_do_rozlozenia.config(text = kasa_gracza)
+            kasa_zapadnia4+=25000
+            kasa_na_zapadni4.config(text = kasa_zapadnia4)
 
 def akcja_minusik4():
     global kasa_gracza
@@ -107,6 +113,7 @@ def akcja_minusik4():
         kasa_na_zapadni4.config(text = kasa_zapadnia4)
 
 ##############################
+
 zapadnia1 = tk.Label(glowne_okno, bg= "gray", bd=10)
 zapadnia1.place(relx=0.20, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
 
@@ -120,7 +127,8 @@ odpowiedz1.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
 
 kasa_zapadnia1 = 0
 kasa_na_zapadni1 = tk.Label(zapadnia1, text = kasa_zapadnia1, font=50, bg= "gray")
-kasa_na_zapadni1.place(relx=0.5, rely=0.4, relwidth=0.5, relheight=0.15, anchor='n')
+kasa_na_zapadni1.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
 ##########################
 
 zapadnia2 = tk.Label(glowne_okno, bg= "gray", bd=10)
@@ -136,7 +144,7 @@ odpowiedz2.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
 
 kasa_zapadnia2 = 0
 kasa_na_zapadni2 = tk.Label(zapadnia2, text = kasa_zapadnia1, font=50, bg= "gray")
-kasa_na_zapadni2.place(relx=0.5, rely=0.4, relwidth=0.5, relheight=0.15, anchor='n')
+kasa_na_zapadni2.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
 
 ##########################
 
@@ -153,7 +161,7 @@ odpowiedz3.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
 
 kasa_zapadnia3 = 0
 kasa_na_zapadni3 = tk.Label(zapadnia3, text = kasa_zapadnia1, font=50, bg= "gray")
-kasa_na_zapadni3.place(relx=0.5, rely=0.4, relwidth=0.5, relheight=0.15, anchor='n')
+kasa_na_zapadni3.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
 
 ##########################
 
@@ -170,12 +178,13 @@ odpowiedz4.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
 
 kasa_zapadnia4 = 0
 kasa_na_zapadni4 = tk.Label(zapadnia4, text = kasa_zapadnia1, font=50, bg= "gray")
-kasa_na_zapadni4.place(relx=0.5, rely=0.4, relwidth=0.5, relheight=0.15, anchor='n')
+kasa_na_zapadni4.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
 
 ##############################
+
 kasa_gracza = 1000000
 kasa_do_rozlozenia = tk.Label(glowne_okno, text = kasa_gracza, font=100)
 kasa_do_rozlozenia.place(relx=0.5, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
 
-
 glowne_okno.mainloop()
+
