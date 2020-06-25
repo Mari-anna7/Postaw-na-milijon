@@ -1,0 +1,280 @@
+import  random
+from tkinter import *
+import tkinter as tk
+
+glowne_okno = tk.Tk()
+glowne_okno.title("Postaw na miljon")
+glowne_okno.geometry("900x650")
+
+def gra():
+    global kasa_gracza
+    for i in range(4):
+        if kasa_gracza == 0:
+            break
+        wylosowane_4 = losowanie_numeru_pytania_4(etap1)
+        kasa_zapadnia1 = 0
+        kasa_zapadnia2 = 0
+        kasa_zapadnia3 = 0
+        kasa_zapadnia4 = 0
+        kasa_gracza = kasa_zapadnia1
+
+        pozycja_losowa_4 = random.randint(1, 4)
+        print(pozycja_losowa_4)
+        if pozycja_losowa_4 == 1:
+            pozycjowanie_4(wylosowane_4[0], wylosowane_4[1], wylosowane_4[2], wylosowane_4[3], wylosowane_4[4])
+        elif pozycja_losowa_4 == 2:
+            pozycjowanie_4(wylosowane_4[0], wylosowane_4[2], wylosowane_4[1], wylosowane_4[4], wylosowane_4[3])
+        elif pozycja_losowa_4 == 3:
+            pozycjowanie_4(wylosowane_4[0], wylosowane_4[3], wylosowane_4[4], wylosowane_4[1], wylosowane_4[2])
+        elif pozycja_losowa_4 == 4:
+            pozycjowanie_4(wylosowane_4[0], wylosowane_4[3], wylosowane_4[4], wylosowane_4[2], wylosowane_4[1])
+
+    for i in range(3):
+        if kasa_gracza == 0:
+            break
+        wylosowane_3 = losowanie_numeru_pytania_3(etap2)
+        kasa_zapadnia1 = 0
+        kasa_zapadnia2 = 0
+        kasa_zapadnia3 = 0
+        kasa_gracza = kasa_zapadnia1
+
+        pozycja_losowa_3 = random.randint(1, 3)
+        print(pozycja_losowa_3)
+        if pozycja_losowa_3 == 1:
+            pozycjowanie_3(wylosowane_3[0], wylosowane_3[1], wylosowane_3[2], wylosowane_3[3])
+        elif pozycja_losowa_3 == 2:
+            pozycjowanie_3(wylosowane_3[0], wylosowane_3[2], wylosowane_3[1], wylosowane_3[3])
+        elif pozycja_losowa_3 == 3:
+            pozycjowanie_3(wylosowane_3[0], wylosowane_3[3], wylosowane_3[2], wylosowane_3[1])
+
+    for i in range(1):
+        if kasa_gracza == 0:
+            break
+
+        wylosowane_2 = losowanie_numeru_pytania_2(etap3)
+        kasa_zapadnia1 = 0
+        kasa_zapadnia2 = 0
+        kasa_gracza = kasa_zapadnia1
+
+        pozycja_losowa_2 = random.randint(1, 2)
+        print(pozycja_losowa_2)
+        if pozycja_losowa_2 == 1:
+            pozycjowanie_2(wylosowane_2[0], wylosowane_2[1], wylosowane_2[2])
+        elif pozycja_losowa_2 == 2:
+            pozycjowanie_2(wylosowane_2[0], wylosowane_2[2], wylosowane_2[1])
+
+    if kasa_gracza > 0:
+        print("Gratuluję wygrałeś")
+
+
+def akcja_plusik1():
+    global kasa_gracza
+    global kasa_zapadnia1
+    if kasa_gracza>0:
+        if kasa_zapadnia2==0 or kasa_zapadnia3==0 or kasa_zapadnia4==0:
+            kasa_gracza-=25000
+            kasa_do_rozlozenia.config(text = kasa_gracza)
+            kasa_zapadnia1+=25000
+            kasa_na_zapadni1.config(text = kasa_zapadnia1)
+
+
+def akcja_minusik1():
+    global kasa_gracza
+    global kasa_zapadnia1
+    if kasa_zapadnia1>0:
+        kasa_gracza+=25000
+        kasa_do_rozlozenia.config(text = kasa_gracza)
+        kasa_zapadnia1-=25000
+        kasa_na_zapadni1.config(text = kasa_zapadnia1)
+##########################
+
+def akcja_plusik2():
+    global kasa_gracza
+    global kasa_zapadnia2
+    if kasa_gracza>0:
+        if kasa_zapadnia1==0 or kasa_zapadnia3==0 or kasa_zapadnia4==0:
+            kasa_gracza-=25000
+            kasa_do_rozlozenia.config(text = kasa_gracza)
+            kasa_zapadnia2+=25000
+            kasa_na_zapadni2.config(text = kasa_zapadnia2)
+
+def akcja_minusik2():
+    global kasa_gracza
+    global kasa_zapadnia2
+    if kasa_zapadnia2>0:
+        kasa_gracza+=25000
+        kasa_do_rozlozenia.config(text = kasa_gracza)
+        kasa_zapadnia2-=25000
+        kasa_na_zapadni2.config(text = kasa_zapadnia2)
+
+##########################
+
+def akcja_plusik3():
+    global kasa_gracza
+    global kasa_zapadnia3
+    if kasa_gracza>0:
+        if kasa_zapadnia2==0 or kasa_zapadnia1==0 or kasa_zapadnia4==0:
+            kasa_gracza-=25000
+            kasa_do_rozlozenia.config(text = kasa_gracza)
+            kasa_zapadnia3+=25000
+            kasa_na_zapadni3.config(text = kasa_zapadnia3)
+
+def akcja_minusik3():
+    global kasa_gracza
+    global kasa_zapadnia3
+    if kasa_zapadnia3>0:
+        kasa_gracza+=25000
+        kasa_do_rozlozenia.config(text = kasa_gracza)
+        kasa_zapadnia3-=25000
+        kasa_na_zapadni3.config(text = kasa_zapadnia3)
+
+############################
+
+def akcja_plusik4():
+    global kasa_gracza
+    global kasa_zapadnia4
+    if kasa_gracza>0:
+        if kasa_zapadnia2==0 or kasa_zapadnia3==0 or kasa_zapadnia1==0:
+            kasa_gracza-=25000
+            kasa_do_rozlozenia.config(text = kasa_gracza)
+            kasa_zapadnia4+=25000
+            kasa_na_zapadni4.config(text = kasa_zapadnia4)
+
+def akcja_minusik4():
+    global kasa_gracza
+    global kasa_zapadnia4
+    if kasa_zapadnia4>0:
+        kasa_gracza+=25000
+        kasa_do_rozlozenia.config(text = kasa_gracza)
+        kasa_zapadnia4-=25000
+        kasa_na_zapadni4.config(text = kasa_zapadnia4)
+
+######################
+
+def pozycjowanie_4(pytanie, odpowiedz_a, odpowiedz_b, odpowiedz_c, odpowiedz_d):
+    print(pytanie,"\n" "A:", odpowiedz_a, "B:", odpowiedz_b,"C:", odpowiedz_c, "D:", odpowiedz_d)
+
+def pozycjowanie_3(pytanie, odpowiedz_a, odpowiedz_b, odpowiedz_c):
+    print(pytanie,"\n" "A:", odpowiedz_a, "B:", odpowiedz_b,"C:", odpowiedz_c)
+
+def pozycjowanie_2(pytanie, odpowiedz_a, odpowiedz_b):
+    print(pytanie,"\n" "A:", odpowiedz_a, "B:", odpowiedz_b)
+
+## losowanie pytania z 4 odpowiedziami
+def losowanie_numeru_pytania_4(liczba_pytan_4):
+    wylosowane_pytanie = random.randint(1, len(liczba_pytan_4))
+    lista_z_pytaniem = liczba_pytan_4[wylosowane_pytanie]
+    return lista_z_pytaniem
+
+## losowanie pytania z 3 odpowiedziami
+def losowanie_numeru_pytania_3(liczba_pytan_3):
+    wylosowane_pytanie = random.randint(1, len(liczba_pytan_3))
+    lista_z_pytaniem = liczba_pytan_3[wylosowane_pytanie]
+    return lista_z_pytaniem
+
+## losowanie pytania z dwoma odpowiedziami
+def losowanie_numeru_pytania_2(liczba_pytan_2):
+    wylosowane_pytanie = random.randint(1, len(liczba_pytan_2))
+    lista_z_pytaniem = liczba_pytan_2[wylosowane_pytanie]
+    return lista_z_pytaniem
+
+##############################
+### ZBIORY PYTAN W SLOWNIKACH
+## etap1 = pytania z 4 odpowiedziami, etap2 = pytania z 3 odpowiedziami, etap3 = pytania z 2 odpowiedziami
+## w każdym etapie mamy numery pytań (jako hasła) oraz pytania z odpowiedziami (jako definicje)
+## w liście poprawna odpowiedź znajduje sie zawsze na pozycji [1] (za pytaniem[0])
+
+etap1 = {1: ["Ile jest części „Dziadów”?", "3", "2", "1", "4"],
+         2: ["Który z tych twórców nie dostał Nobla?", "Białoszewski", "Szymborska", "Sienkiewicz", "Miłosz"],
+         3: ["Która z części „Dziadów” jest pierwsza?", "II", "IV", "III", "I"],
+         4: ["Kto jest autorem „Hymnu”?", "Słowacki", "Krasicki", "Mickiewicz", "Chopin"],
+         5: ["Kto jest głównym bohaterem „Dziadów cz.III”?", "Konrad", "Kordian", "ksiądz Robak", "Konstanty"],
+         6: ["Która z tych lektur nie jest obowiązkowa?", "Świtezianka", "Wesele", "Lalka", "Sklepy cynamonowe"],
+         7: ["Ilu mamy polskich laureatów literackiej nagrody Nobla?", "5", "3", "4", "7"],
+         8: ["Prekursorem jakiego skrótowca był Mickiewicz?", "YOLO", "xoxo", "lmao", "rolf"]}
+etap2 = {1: ["Skąd pochodzi cytat: „Niech się dzieje wola nieba…”?", "Zemsta","Świętoszek", "Nie-boska Komedia"],
+         2: ["Prawdziwe nazwisko Bolesława Prusa to:", "Aleksander Głowacki", "Przemysław Terlecki", "Zenon Jaworski"],
+         3: ["Kto jest autorem „Trenów”?", "Kochanowski", "Słowacki", "Konopnicka"],
+         4: ["Kto jest autorem „Sonetów Krymskich”?", "Mickiewicz", "Słowacki", "Wyspiański"],
+         5: ["Z kim flirtował tytułowy Pan Tadeusz?", "Z obiema", "Z Telimeną", "Z Zosią"],
+         6: ["Skąd pochodzi cytat: „Niech się dzieje wola nieba…”?", "Zemsta", "Świętoszek", "Nie-boska Komedia"]}
+etap3 = {1: ["Nazwiskiem którego z poetów sygnowana jest jedna z czołowych polskich uczelni?", "Mickiewicza", "Słowackiego"],
+         2: ["Jaki jest najlepszy nadmorski ptak?", "Jesiotr", "Gosia Andrzejwicz"],
+         3: ["Co liże Luna?", "Ścianę", "Jesiotra"],
+         4: ["Jak Ci poszło?", "M E G A", "Źle :((("]}
+
+##############################
+
+zapadnia1 = tk.Label(glowne_okno, bg= "gray", bd=10)
+zapadnia1.place(relx=0.20, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+button1 = tk.Button(zapadnia1, text = "+", font=50, command = akcja_plusik1)
+button1.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+button2 = tk.Button(zapadnia1, text = "-", font=50, command = akcja_minusik1)
+button2.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+odpowiedz1 = tk.Label(zapadnia1, text = "A", font=50, bg= "white")
+odpowiedz1.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+kasa_zapadnia1 = 0
+kasa_na_zapadni1 = tk.Label(zapadnia1, text = kasa_zapadnia1, font=50, bg= "gray")
+kasa_na_zapadni1.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+##########################
+
+zapadnia2 = tk.Label(glowne_okno, bg= "gray", bd=10)
+zapadnia2.place(relx=0.40, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+button3 = tk.Button(zapadnia2, text = "+", font=50, command = akcja_plusik2)
+button3.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+button4 = tk.Button(zapadnia2, text = "-", font=50, command = akcja_minusik2)
+button4.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+odpowiedz2 = tk.Label(zapadnia2, text = "B", font=50,  bg= "white")
+odpowiedz2.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+kasa_zapadnia2 = 0
+kasa_na_zapadni2 = tk.Label(zapadnia2, text = kasa_zapadnia1, font=50, bg= "gray")
+kasa_na_zapadni2.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+##########################
+
+zapadnia3 = tk.Label(glowne_okno, bg= "gray", bd=10)
+zapadnia3.place(relx=0.60, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+button5 = tk.Button(zapadnia3, text = "+", font=50, command = akcja_plusik3)
+button5.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+button6 = tk.Button(zapadnia3, text = "-", font=50, command = akcja_minusik3)
+button6.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+odpowiedz3 = tk.Label(zapadnia3, text = "C", font=50,  bg= "white")
+odpowiedz3.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+kasa_zapadnia3 = 0
+kasa_na_zapadni3 = tk.Label(zapadnia3, text = kasa_zapadnia1, font=50, bg= "gray")
+kasa_na_zapadni3.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+##########################
+
+zapadnia4 = tk.Label(glowne_okno, bg= "gray", bd=10)
+zapadnia4.place(relx=0.80, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+button7 = tk.Button(zapadnia4, text = "+", font=50, command = akcja_plusik4)
+button7.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+button8 = tk.Button(zapadnia4, text = "-", font=50, command = akcja_minusik4)
+button8.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+odpowiedz4 = tk.Label(zapadnia4, text = "D", font=50, bg= "white")
+odpowiedz4.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+kasa_zapadnia4 = 0
+kasa_na_zapadni4 = tk.Label(zapadnia4, text = kasa_zapadnia1, font=50, bg= "gray")
+kasa_na_zapadni4.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+##############################
+
+kasa_gracza = 1000000
+kasa_do_rozlozenia = tk.Label(glowne_okno, text = kasa_gracza, font=100)
+kasa_do_rozlozenia.place(relx=0.5, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+glowne_okno.mainloop()
