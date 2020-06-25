@@ -1,0 +1,42 @@
+### LOSOWANIE POZYCJI ODPOWIEDZI
+import random
+
+###losujemy pozycje poprawnej odpowiedzi
+### etap 1
+def pozycjowanie_4(pytanie, odpowiedz_a, odpowiedz_b, odpowiedz_c, odpowiedz_d):
+    print(pytanie,"\n" "A:", odpowiedz_a, "B:", odpowiedz_b,"C:", odpowiedz_c, "D:", odpowiedz_d)
+
+pozycja_losowa_4 = random.randint(1, 4)
+print(pozycja_losowa_4)
+if pozycja_losowa_4 == 1:
+    pozycjowanie_4(wylosowane_4[0], wylosowane_4[1], wylosowane_4[2], wylosowane_4[3], wylosowane_4[4])
+elif pozycja_losowa_4 == 2:
+    pozycjowanie_4(wylosowane_4[0], wylosowane_4[2], wylosowane_4[1], wylosowane_4[4], wylosowane_4[3])
+elif pozycja_losowa_4 == 3:
+    pozycjowanie_4(wylosowane_4[0], wylosowane_4[3], wylosowane_4[4], wylosowane_4[1], wylosowane_4[2])
+elif pozycja_losowa_4 == 4:
+    pozycjowanie_4(wylosowane_4[0], wylosowane_4[3], wylosowane_4[4], wylosowane_4[2], wylosowane_4[1])
+
+### etap 2
+def pozycjowanie_3(pytanie, odpowiedz_a, odpowiedz_b, odpowiedz_c):
+    print(pytanie,"\n" "A:", odpowiedz_a, "B:", odpowiedz_b,"C:", odpowiedz_c)
+
+pozycja_losowa_3 = random.randint(1, 3)
+print(pozycja_losowa_3)
+if pozycja_losowa_3 == 1:
+    pozycjowanie_3(wylosowane_3[0], wylosowane_3[1], wylosowane_3[2], wylosowane_3[3])
+elif pozycja_losowa_3 == 2:
+    pozycjowanie_3(wylosowane_3[0], wylosowane_3[2], wylosowane_3[3], wylosowane_3[1])
+elif pozycja_losowa_3 == 3:
+    pozycjowanie_3(wylosowane_3[0], wylosowane_3[3], wylosowane_3[1], wylosowane_3[2])
+
+### etap 3
+def pozycjowanie_2(pytanie, odpowiedz_a, odpowiedz_b):
+    print(pytanie,"\n" "A:", odpowiedz_a, "B:", odpowiedz_b)
+
+pozycja_losowa_2 = random.randint(1, 2)
+print(pozycja_losowa_2)
+if pozycja_losowa_2 == 1:
+    pozycjowanie_2(wylosowane_2[0], wylosowane_2[1], wylosowane_2[2])
+elif pozycja_losowa_2 == 2:
+    pozycjowanie_2(wylosowane_2[0], wylosowane_2[2], wylosowane_2[1])
