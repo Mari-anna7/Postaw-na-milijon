@@ -1,3 +1,25 @@
+### FUNKCJE
+import  random
+
+## losowanie pytania z 4 odpowiedziami
+def losowanie_numeru_pytania_4(liczba_pytan_4):
+    wylosowane_pytanie = random.randint(1, len(liczba_pytan_4))
+    lista_z_pytaniem = liczba_pytan_4[wylosowane_pytanie]
+    return lista_z_pytaniem
+
+## losowanie pytania z 3 odpowiedziami
+def losowanie_numeru_pytania_3(liczba_pytan_3):
+    wylosowane_pytanie = random.randint(1, len(liczba_pytan_3))
+    lista_z_pytaniem = liczba_pytan_3[wylosowane_pytanie]
+    return lista_z_pytaniem
+
+## losowanie pytania z dwoma odpowiedziami
+def losowanie_numeru_pytania_2(liczba_pytan_2):
+    wylosowane_pytanie = random.randint(1, len(liczba_pytan_2))
+    lista_z_pytaniem = liczba_pytan_2[wylosowane_pytanie]
+    return lista_z_pytaniem
+
+
 ### ZBIORY PYTAN W SLOWNIKACH
 ## etap1 = pytania z 4 odpowiedziami, etap2 = pytania z 3 odpowiedziami, etap3 = pytania z 2 odpowiedziami
 ## w każdym etapie mamy numery pytań (jako hasła) oraz pytania z odpowiedziami (jako definicje)
