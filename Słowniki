@@ -26,11 +26,23 @@ def losowanie_numeru_pytania_2(liczba_pytan_2):
 ## w liście poprawna odpowiedź znajduje sie zawsze na pozycji [1] (za pytaniem[0])
 
 etap1 = {1: ["Ile jest części „Dziadów”?", "3", "2", "1", "4"],
-         2: ["Który z tych twórców nie dostał Nobla?", "Białoszewski", "Szymborska", "Sienkiewicz", "Miłosz"]}
+         2: ["Który z tych twórców nie dostał Nobla?", "Białoszewski", "Szymborska", "Sienkiewicz", "Miłosz"],
+         3: ["Która z części „Dziadów” jest pierwsza?", "II", "IV", "III", "I"],
+         4: ["Kto jest autorem „Hymnu”?", "Słowacki", "Krasicki", "Mickiewicz", "Chopin"],
+         5: ["Kto jest głównym bohaterem „Dziadów cz.III”?", "Konrad", "Kordian", "ksiądz Robak", "Konstanty"],
+         6: ["Która z tych lektur nie jest obowiązkowa?", "Świtezianka", "Wesele", "Lalka", "Sklepy cynamonowe"],
+         7: ["Ilu mamy polskich laureatów literackiej nagrody Nobla?", "5", "3", "4", "7"],
+         8: ["Prekursorem jakiego skrótowca był Mickiewicz?", "YOLO", "xoxo", "lmao", "rolf"]}
 etap2 = {1: ["Skąd pochodzi cytat: „Niech się dzieje wola nieba…”?", "Zemsta","Świętoszek", "Nie-boska Komedia"],
-         2: ["Prawdziwe nazwisko Bolesława Prusa to:", "Aleksander Głowacki", "Przemysław Terlecki", "Zenon Jaworski"]}
+         2: ["Prawdziwe nazwisko Bolesława Prusa to:", "Aleksander Głowacki", "Przemysław Terlecki", "Zenon Jaworski"],
+         3: ["Kto jest autorem „Trenów”?", "Kochanowski", "Słowacki", "Konopnicka"],
+         4: ["Kto jest autorem „Sonetów Krymskich”?", "Mickiewicz", "Słowacki", "Wyspiański"],
+         5: ["Z kim flirtował tytułowy Pan Tadeusz?", "Z obiema", "Z Telimeną", "Z Zosią"],
+         6: ["Skąd pochodzi cytat: „Niech się dzieje wola nieba…”?", "Zemsta", "Świętoszek", "Nie-boska Komedia"]}
 etap3 = {1: ["Nazwiskiem którego z poetów sygnowana jest jedna z czołowych polskich uczelni?", "Mickiewicza", "Słowackiego"],
-         2: ["Jaki jest najlepszy nadmorski ptak?", "Jesiotr", "Gosia Andrzejwicz"]}
+         2: ["Jaki jest najlepszy nadmorski ptak?", "Jesiotr", "Gosia Andrzejwicz"],
+         3: ["Co liże Luna?", "Ścianę", "Jesiotra"],
+         4: ["Jak Ci poszło?", "M E G A", "Źle :((("]}
 
 wylosowane_4 = losowanie_numeru_pytania_4(etap1)
 wylosowane_3 = losowanie_numeru_pytania_3(etap2)
