@@ -26,9 +26,9 @@ print(pozycja_losowa_3)
 if pozycja_losowa_3 == 1:
     pozycjowanie_3(wylosowane_3[0], wylosowane_3[1], wylosowane_3[2], wylosowane_3[3])
 elif pozycja_losowa_3 == 2:
-    pozycjowanie_3(wylosowane_3[0], wylosowane_3[2], wylosowane_3[3], wylosowane_3[1])
+    pozycjowanie_3(wylosowane_3[0], wylosowane_3[2], wylosowane_3[1], wylosowane_3[3])
 elif pozycja_losowa_3 == 3:
-    pozycjowanie_3(wylosowane_3[0], wylosowane_3[3], wylosowane_3[1], wylosowane_3[2])
+    pozycjowanie_3(wylosowane_3[0], wylosowane_3[3], wylosowane_3[2], wylosowane_3[1])
 
 ### etap 3
 def pozycjowanie_2(pytanie, odpowiedz_a, odpowiedz_b):
