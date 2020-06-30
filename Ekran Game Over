@@ -1,0 +1,24 @@
+from tkinter import *
+import tkinter as tk
+
+koniec_okno = tk.Tk()
+koniec_okno.title("Postaw na miljon")
+koniec_okno.geometry("1024x576")
+
+grafika = PhotoImage(file = "/Users/mac/Desktop/Postaw na milijon/minion_z_wesela.png")
+grafika_tło = Label(koniec_okno, image = grafika)
+grafika_tło.pack()
+
+
+##### PRZYCISKI KONCA #####
+
+baton1 = Button(koniec_okno, text = "Zagraj ponownie") ### + command ze runnowanie okna z grą lub menu startu
+baton1.place(relx = 0.6, rely = 0.5, relwidth=0.2, relheight=0.1)
+
+baton2 = Button(koniec_okno, text = "Zamknij", command = koniec_okno.destroy)
+baton2.place(relx = 0.6, rely = 0.65, relwidth=0.2, relheight=0.1)
+
+kasa_koniec = Label(koniec_okno, text = "Twoja kasa to 0 ZŁ")
+kasa_koniec.place(relx = 0.6, rely = 0.4, relwidth=0.2, relheight=0.1)
+
+koniec_okno.mainloop()
