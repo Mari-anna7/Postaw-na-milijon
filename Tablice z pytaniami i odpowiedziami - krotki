@@ -1,0 +1,18 @@
+sample_data1 = [["Ile jest części „Dziadów”?", ("3",1), ("2",0), ("1",0), ("4",0)],
+                ["Który z tych twórców nie dostał Nobla?", ("Szymborska",0), ("Białoszewski",1), ("Sienkiewicz",0), ("Miłosz",0)],
+                ["Która z części „Dziadów” jest pierwsza?", ("IV",0), ("III",0),  ("II",1), ("I",0)],
+                ["Kto jest autorem „Hymnu”?", ("Krasicki",0), ("Mickiewicz",0), ("Chopin",0), ("Słowacki",1)],
+                ["Kto jest głównym bohaterem „Dziadów cz.III”?", ("Konrad",1), ("Kordian",0), ("ksiądz Robak",0), ("Konstanty",0)],
+                ["Która z tych lektur nie jest obowiązkowa?", ("Wesele",0), ("Świtezianka",1), ("Lalka",0), ("Sklepy cynamonowe",0)],
+                ["Ilu mamy polskich laureatów literackiej nagrody Nobla?", ("3",0), ("4",0), ("5",1), ("7",0)],
+                ["Prekursorem jakiego skrótowca był Mickiewicz?", ("xoxo",0), ("lmao",0), ("rolf",0), ("YOLO",1)]]
+sample_data2 = [["Skąd pochodzi cytat: „Niech się dzieje wola nieba…”?", ("Zemsta",1), ("Świętoszek",0), ("Nie-boska Komedia",0)],
+                ["Prawdziwe nazwisko Bolesława Prusa to:", ("Przemysław Terlecki",0), ("Aleksander Głowacki",1), ("Zenon Jaworski",0)],
+                ["Kto jest autorem „Trenów”?", ("Słowacki",0), ("Konopnicka",0), ("Kochanowski",1)],
+                ["Kto jest autorem „Sonetów Krymskich”?", ("Mickiewicz",1), ("Słowacki",0), ("Wyspiański",0)],
+                ["Z kim flirtował tytułowy Pan Tadeusz?", ("Z Telimeną",0), ("Z Zosią",0), ("Z obiema",1)],
+                ["Skąd pochodzi cytat: „Niech się dzieje wola nieba…”?", ("Świętoszek",0), ("Zemsta",1), ("Nie-boska Komedia",0)]]
+sample_data3 = [["Nazwiskiem którego z poetów sygnowana jest jedna z czołowych polskich uczelni?", ("Mickiewicza",1), ("Słowackiego",0)],
+                ["Jaki jest najlepszy nadmorski ptak?", ("Gosia Andrzejwicz",0), ("Jesiotr",1)],
+                ["Co liże Luna?", ("Jesiotra",0), ("Ścianę",1)],
+                ["Jak Ci poszło?", ("M E G A",1), ("Źle :(((",0)]]
