@@ -273,19 +273,19 @@ class Menu(Zapadnie):
                             wygrana_okno.title("Postaw na miljon")
                             wygrana_okno.geometry("1024x576")
 
-                            grafika = PhotoImage(file="")
-                            grafika_tło = Label(przegrana_okno, image=grafika)
+                            grafika = PhotoImage(file="/Users/mac/Desktop/Postaw na milijon/mrozu_wygrana.png")
+                            grafika_tło = Label(wygrana_okno, image=grafika)
                             grafika_tło.pack()
 
                             ##### PRZYCISKI KONCA #####
                             baton1 = Button(wygrana_okno, text="Zagraj ponownie")  ### + command ze runnowanie okna z grą
-                            baton1.place(relx=0.6, rely=0.5, relwidth=0.2, relheight=0.1)
+                            baton1.place(relx=0.3, rely=0.55, relwidth=0.2, relheight=0.1)
 
-                            baton2 = Button(wygrana_okno, text="Zamknij", command=przegrana_okno.destroy)
-                            baton2.place(relx=0.6, rely=0.65, relwidth=0.2, relheight=0.1)
+                            baton2 = Button(wygrana_okno, text="Zamknij", command = wygrana_okno.destroy)
+                            baton2.place(relx=0.3, rely=0.70, relwidth=0.2, relheight=0.1)
 
-                            kasa_koniec = Label(wygrana_okno, text = "TWOJA KASA: " + str(kasa_gracza) + " ZŁ")
-                            kasa_koniec.place(relx=0.6, rely=0.35, relwidth=0.2, relheight=0.1)
+                            kasa_koniec = Label(wygrana_okno, text = "TWOJA KASA: " + str(kasa_gracza) + " ZŁ", bg = "grey")
+                            kasa_koniec.place(relx=0.3, rely=0.40, relwidth=0.2, relheight=0.1)
                     else:
                         #### OKNO PRZEGRANEJ ####
                         przegrana_okno = tk.Tk()
