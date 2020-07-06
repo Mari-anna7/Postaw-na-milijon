@@ -347,7 +347,7 @@ class Menu(Zapadnie):
     ###########################
     def akcja_zasady():
         messagebox.showinfo("Zasady gry",
-                            "ZASADY GRY:\nczeka Cię 8 pytań,\nza każdym razem musisz rozłożyć wszystkie pieniądze,\njedna zapadnia musi pozostać pusta")
+                            "ZASADY GRY:\nCzeka Cię 8 pytań,\nza każdym razem musisz rozłożyć wszystkie pieniądze,\njedna zapadnia musi pozostać pusta")
 
     def akcja_autorki():
         messagebox.showinfo("Autorki", "Autorki: Marianna Sikorska, Julia Moryson, Beata Nowak")
