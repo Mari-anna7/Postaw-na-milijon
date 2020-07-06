@@ -325,7 +325,7 @@ class Menu(Zapadnie):
             wydrukowane_pytanie_4 = tk.Label(glowne_okno, text=pytanie_4 + "\n" + "A: " + odp_1[0] + "\n" + "B: " + odp_2[0] + "\n" + "C: " + odp_3[0], font=50)
             wydrukowane_pytanie_4.place(relx=0.5, rely=0.05, anchor='n')
             poprawna_odp = [odp_1[1], odp_2[1], odp_3[1]].index(1) + 1
-            etap2.remove(choice)
+            del etap2[choice]
 
         elif ktore_pytanie == 8:
             global etap3
@@ -334,7 +334,7 @@ class Menu(Zapadnie):
             wydrukowane_pytanie_4 = tk.Label(glowne_okno, text=pytanie_4 + "\n" + "A: " + odp_1[0] + "\n" + "B: " + odp_2[0], font=50)
             wydrukowane_pytanie_4.place(relx=0.5, rely=0.05, anchor='n')
             poprawna_odp = [odp_1[1], odp_2[1]].index(1) + 1
-            etap3.remove(choice)
+            del etap3[choice]
         else:
             global etap1
             choice = randint(0, len(etap1) - 1)
@@ -342,15 +342,15 @@ class Menu(Zapadnie):
             wydrukowane_pytanie_4 = tk.Label(glowne_okno, text=pytanie_4 + "\n" + "A: " + odp_1[0] + "\n" + "B: " + odp_2[0] + "\n" + "C: " + odp_3[0] + "\n" + "D: " + odp_4[0], font=50)
             wydrukowane_pytanie_4.place(relx=0.5, rely=0.05, anchor='n')
             poprawna_odp = [odp_1[1], odp_2[1], odp_3[1], odp_4[1]].index(1) + 1
-            etap1.remove(choice)
+            del etap1[choice]
 
     ###########################
     def akcja_zasady():
         messagebox.showinfo("Zasady gry",
-                            "ZASADY GRY:\nCzeka Cię 8 pytań,\nza każdym razem musisz rozłożyć wszystkie pieniądze,\njedna zapadnia musi pozostać pusta")
+                            "ZASADY GRY:\nCzeka Cię 8 pytań,\nza każdym razem musisz rozłożyć wszystkie pieniądze,\na jedna zapadnia musi pozostać pusta")
 
     def akcja_autorki():
-        messagebox.showinfo("Autorki", "Autorki: Marianna Sikorska, Julia Moryson, Beata Nowak")
+        messagebox.showinfo("Autorki", "Autorki: \nMarianna Sikorska, Julia Moryson, Beata Nowak")
 
 ######### FLAGA RESTARTU ###############
 restart_gry = False
