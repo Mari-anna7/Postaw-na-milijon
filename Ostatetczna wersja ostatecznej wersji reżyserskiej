@@ -1,0 +1,637 @@
+from tkinter import *
+import tkinter as tk
+from tkinter import messagebox
+from random import *
+
+##### LISTY PYTAŃ Z ODPOWIEDZIAMI JAKO KROTKI ######
+etap1 = [["Ile jest części „Dziadów”?", ("3",1), ("2",0), ("1",0), ("4",0)],
+                ["Który z tych twórców nie dostał Nobla?", ("Szymborska",0), ("Białoszewski",1), ("Sienkiewicz",0), ("Miłosz",0)],
+                ["Która z części „Dziadów” jest pierwsza?", ("IV",0), ("III",0),  ("II",1), ("I",0)],
+                ["Kto jest autorem „Hymnu”?", ("Krasicki",0), ("Mickiewicz",0), ("Chopin",0), ("Słowacki",1)],
+                ["Kto jest głównym bohaterem „Dziadów cz.III”?", ("Konrad",1), ("Kordian",0), ("ksiądz Robak",0), ("Konstanty",0)],
+                ["Która z tych lektur nie jest obowiązkowa?", ("Wesele",0), ("Świtezianka",1), ("Lalka",0), ("Sklepy cynamonowe",0)],
+                ["Ilu mamy polskich laureatów literackiej nagrody Nobla?", ("3",0), ("4",0), ("5",1), ("7",0)],
+                ["Prekursorem jakiego skrótowca był Mickiewicz?", ("xoxo",0), ("lmao",0), ("rolf",0), ("YOLO",1)]]
+etap2= [["Skąd pochodzi cytat: „Niech się dzieje wola nieba…”?", ("Zemsta",1), ("Świętoszek",0), ("Nie-boska Komedia",0)],
+                ["Prawdziwe nazwisko Bolesława Prusa to:", ("Przemysław Terlecki",0), ("Aleksander Głowacki",1), ("Zenon Jaworski",0)],
+                ["Kto jest autorem „Trenów”?", ("Słowacki",0), ("Konopnicka",0), ("Kochanowski",1)],
+                ["Kto jest autorem „Sonetów Krymskich”?", ("Mickiewicz",1), ("Słowacki",0), ("Wyspiański",0)],
+                ["Z kim flirtował tytułowy Pan Tadeusz?", ("Z Telimeną",0), ("Z Zosią",0), ("Z obiema",1)]]
+etap3 = [["Nazwiskiem którego z poetów sygnowana jest jedna z czołowych polskich uczelni?", ("Mickiewicza",1), ("Słowackiego",0)],
+                ["Jaki jest najlepszy nadmorski ptak?", ("Gosia Andrzejwicz",0), ("Jesiotr",1)],
+                ["Co liże Luna?", ("Jesiotra",0), ("Ścianę",1)],
+                ["Jak Ci poszło?", ("M E G A",1), ("Źle :(((",0)]]
+
+ile_zapadek = 4
+ktore_pytanie = 1
+poprawna_odp = -1
+
+### KLASA KTÓRA ZAWIERA FUNKCJE DO PRZYCISKÓW NA ZAPADNIACH ###
+class Zapadnie():
+    def __init__(self):
+        global kasa_gracza
+        global kasa_zapadnia1
+        global kasa_zapadnia2
+        global kasa_zapadnia3
+        global kasa_zapadnia4
+        kasa_zapadnia1 = 0
+        kasa_zapadnia2 = 0
+        kasa_zapadnia3 = 0
+        kasa_zapadnia4 = 0
+
+    ##########################
+    def akcja_plusik1z4():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia1
+        global kasa_na_zapadni1
+        if kasa_gracza > 0:
+            if kasa_zapadnia2 == 0 or kasa_zapadnia3 == 0 or kasa_zapadnia4 == 0:
+                kasa_gracza -= 25000
+                kasa_do_rozlozenia.config(text=kasa_gracza)
+                kasa_zapadnia1 += 25000
+                kasa_na_zapadni1.config(text=kasa_zapadnia1)
+
+    def akcja_minusik1z4():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia1
+        global kasa_na_zapadni1
+        if kasa_zapadnia1 > 0:
+            kasa_gracza += 25000
+            kasa_do_rozlozenia.config(text=kasa_gracza)
+            kasa_zapadnia1 -= 25000
+            kasa_na_zapadni1.config(text=kasa_zapadnia1)
+
+    ##########################
+    def akcja_plusik2z4():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia2
+        global kasa_na_zapadni2
+        if kasa_gracza > 0:
+            if kasa_zapadnia1 == 0 or kasa_zapadnia3 == 0 or kasa_zapadnia4 == 0:
+                kasa_gracza -= 25000
+                kasa_do_rozlozenia.config(text=kasa_gracza)
+                kasa_zapadnia2 += 25000
+                kasa_na_zapadni2.config(text=kasa_zapadnia2)
+
+    def akcja_minusik2z4():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia2
+        global kasa_na_zapadni2
+        if kasa_zapadnia2 > 0:
+            kasa_gracza += 25000
+            kasa_do_rozlozenia.config(text=kasa_gracza)
+            kasa_zapadnia2 -= 25000
+            kasa_na_zapadni2.config(text=kasa_zapadnia2)
+
+    ##########################
+    def akcja_plusik3z4():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia3
+        global kasa_na_zapadni3
+        if kasa_gracza > 0:
+            if kasa_zapadnia2 == 0 or kasa_zapadnia1 == 0 or kasa_zapadnia4 == 0:
+                kasa_gracza -= 25000
+                kasa_do_rozlozenia.config(text=kasa_gracza)
+                kasa_zapadnia3 += 25000
+                kasa_na_zapadni3.config(text=kasa_zapadnia3)
+
+    def akcja_minusik3z4():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia3
+        global kasa_na_zapadni3
+        if kasa_zapadnia3 > 0:
+            kasa_gracza += 25000
+            kasa_do_rozlozenia.config(text=kasa_gracza)
+            kasa_zapadnia3 -= 25000
+            kasa_na_zapadni3.config(text=kasa_zapadnia3)
+
+    ############################
+    def akcja_plusik4z4():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia4
+        global kasa_na_zapadni4
+        if kasa_gracza > 0:
+            if kasa_zapadnia2 == 0 or kasa_zapadnia3 == 0 or kasa_zapadnia1 == 0:
+                kasa_gracza -= 25000
+                kasa_do_rozlozenia.config(text=kasa_gracza)
+                kasa_zapadnia4 += 25000
+                kasa_na_zapadni4.config(text=kasa_zapadnia4)
+
+    def akcja_minusik4z4():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia4
+        global kasa_na_zapadni4
+        if kasa_zapadnia4 > 0:
+            kasa_gracza += 25000
+            kasa_do_rozlozenia.config(text=kasa_gracza)
+            kasa_zapadnia4 -= 25000
+            kasa_na_zapadni4.config(text=kasa_zapadnia4)
+
+    ##########################
+    def akcja_plusik1z3():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia1
+        global kasa_na_zapadni1
+        if kasa_gracza > 0:
+            if kasa_zapadnia2 == 0 or kasa_zapadnia3 == 0:
+                kasa_gracza -= 25000
+                kasa_do_rozlozenia.config(text=kasa_gracza)
+                kasa_zapadnia1 += 25000
+                kasa_na_zapadni1.config(text=kasa_zapadnia1)
+
+    def akcja_minusik1z3():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia1
+        global kasa_na_zapadni1
+        if kasa_zapadnia1 > 0:
+            kasa_gracza += 25000
+            kasa_do_rozlozenia.config(text=kasa_gracza)
+            kasa_zapadnia1 -= 25000
+            kasa_na_zapadni1.config(text=kasa_zapadnia1)
+
+    ##########################
+    def akcja_plusik2z3():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia2
+        global kasa_na_zapadni2
+        if kasa_gracza > 0:
+            if kasa_zapadnia1 == 0 or kasa_zapadnia3 == 0:
+                kasa_gracza -= 25000
+                kasa_do_rozlozenia.config(text=kasa_gracza)
+                kasa_zapadnia2 += 25000
+                kasa_na_zapadni2.config(text=kasa_zapadnia2)
+
+    def akcja_minusik2z3():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia2
+        global kasa_na_zapadni2
+        if kasa_zapadnia2 > 0:
+            kasa_gracza += 25000
+            kasa_do_rozlozenia.config(text=kasa_gracza)
+            kasa_zapadnia2 -= 25000
+            kasa_na_zapadni2.config(text=kasa_zapadnia2)
+
+    ##########################
+    def akcja_plusik3z3():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia3
+        global kasa_na_zapadni3
+        if kasa_gracza > 0:
+            if kasa_zapadnia2 == 0 or kasa_zapadnia1 == 0:
+                kasa_gracza -= 25000
+                kasa_do_rozlozenia.config(text=kasa_gracza)
+                kasa_zapadnia3 += 25000
+                kasa_na_zapadni3.config(text=kasa_zapadnia3)
+
+    def akcja_minusik3z3():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia3
+        global kasa_na_zapadni3
+        if kasa_zapadnia3 > 0:
+            kasa_gracza += 25000
+            kasa_do_rozlozenia.config(text=kasa_gracza)
+            kasa_zapadnia3 -= 25000
+            kasa_na_zapadni3.config(text=kasa_zapadnia3)
+
+    ############################
+    def akcja_plusik1z2():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia1
+        global kasa_na_zapadni1
+        if kasa_gracza > 0:
+            if kasa_zapadnia2 == 0:
+                kasa_gracza -= 25000
+                kasa_do_rozlozenia.config(text=kasa_gracza)
+                kasa_zapadnia1 += 25000
+                kasa_na_zapadni1.config(text=kasa_zapadnia1)
+
+    def akcja_minusik1z2():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia1
+        global kasa_na_zapadni1
+        if kasa_zapadnia1 > 0:
+            kasa_gracza += 25000
+            kasa_do_rozlozenia.config(text=kasa_gracza)
+            kasa_zapadnia1 -= 25000
+            kasa_na_zapadni1.config(text=kasa_zapadnia1)
+
+    ##########################
+    def akcja_plusik2z2():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia2
+        global kasa_na_zapadni2
+        if kasa_gracza > 0:
+            if kasa_zapadnia1 == 0:
+                kasa_gracza -= 25000
+                kasa_do_rozlozenia.config(text=kasa_gracza)
+                kasa_zapadnia2 += 25000
+                kasa_na_zapadni2.config(text=kasa_zapadnia2)
+
+    def akcja_minusik2z2():
+        global kasa_gracza
+        global kasa_do_rozlozenia
+        global kasa_zapadnia2
+        global kasa_na_zapadni2
+        if kasa_zapadnia2 > 0:
+            kasa_gracza += 25000
+            kasa_do_rozlozenia.config(text=kasa_gracza)
+            kasa_zapadnia2 -= 25000
+            kasa_na_zapadni2.config(text=kasa_zapadnia2)
+
+    ##########################
+
+
+####### KLASA KTÓRA TWORZY GŁÓWNE OKNO ################
+class Menu(Zapadnie):
+    def akcja_start():
+        glowne_okno = tk.Tk()
+        glowne_okno.title("Postaw na milijon")
+        glowne_okno.geometry("1024x550")
+        menu.destroy()
+
+        global ktore_pytanie
+        numer_rundy = tk.Label(glowne_okno, text="Numer rundy: " + str(ktore_pytanie), fg="blue", font = 30)
+        numer_rundy.place(relx=0.95, rely=0.01, relwidth=0.10, relheight=0.08, anchor='n')
+        ##########################
+
+        global kasa_zapadnia1
+        global kasa_zapadnia2
+        global kasa_zapadnia3
+        global kasa_zapadnia4
+        global ile_zapadek
+        if ile_zapadek == 4:
+
+            ######################
+            zapadnia1 = tk.Label(glowne_okno, bg="gray", bd=10)
+            zapadnia1.place(relx=0.20, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+            button1 = tk.Button(zapadnia1, text="+", font=50, command=Zapadnie.akcja_plusik1z4)
+            button1.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+            button2 = tk.Button(zapadnia1, text="-", font=50, command=Zapadnie.akcja_minusik1z4)
+            button2.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+            odpowiedz1 = tk.Label(zapadnia1, text="A", font=50, bg="white")
+            odpowiedz1.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+            global kasa_na_zapadni1
+            kasa_na_zapadni1 = tk.Label(zapadnia1, text=kasa_zapadnia1, font=50, bg="gray")
+            kasa_na_zapadni1.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+            ##########################    zapadnia 2
+            zapadnia2 = tk.Label(glowne_okno, bg="gray", bd=10)
+            zapadnia2.place(relx=0.40, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+            button3 = tk.Button(zapadnia2, text="+", font=50, command=Zapadnie.akcja_plusik2z4)
+            button3.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+            button4 = tk.Button(zapadnia2, text="-", font=50, command=Zapadnie.akcja_minusik2z4)
+            button4.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+            odpowiedz2 = tk.Label(zapadnia2, text="B", font=50, bg="white")
+            odpowiedz2.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+            global kasa_na_zapadni2
+            kasa_na_zapadni2 = tk.Label(zapadnia2, text=kasa_zapadnia1, font=50, bg="gray")
+            kasa_na_zapadni2.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+            ###########################
+
+            zapadnia3 = tk.Label(glowne_okno, bg="gray", bd=10)
+            zapadnia3.place(relx=0.60, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+            button5 = tk.Button(zapadnia3, text="+", font=50, command=Zapadnie.akcja_plusik3z4)
+            button5.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+            button6 = tk.Button(zapadnia3, text="-", font=50, command=Zapadnie.akcja_minusik3z4)
+            button6.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+            odpowiedz3 = tk.Label(zapadnia3, text="C", font=50, bg="white")
+            odpowiedz3.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+            global kasa_na_zapadni3
+            kasa_na_zapadni3 = tk.Label(zapadnia3, text=kasa_zapadnia1, font=50, bg="gray")
+            kasa_na_zapadni3.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+            ###############################
+
+            zapadnia4 = tk.Label(glowne_okno, bg="gray", bd=10)
+            zapadnia4.place(relx=0.80, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+            button7 = tk.Button(zapadnia4, text="+", font=50, command=Zapadnie.akcja_plusik4z4)
+            button7.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+            button8 = tk.Button(zapadnia4, text="-", font=50, command=Zapadnie.akcja_minusik4z4)
+            button8.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+            odpowiedz4 = tk.Label(zapadnia4, text="D", font=50, bg="white")
+            odpowiedz4.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+            global kasa_na_zapadni4
+            kasa_na_zapadni4 = tk.Label(zapadnia4, text=kasa_zapadnia1, font=50, bg="gray")
+            kasa_na_zapadni4.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+            #######################
+
+        elif ile_zapadek == 3:
+
+            ######################
+            zapadnia1 = tk.Label(glowne_okno, bg="gray", bd=10)
+            zapadnia1.place(relx=0.30, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+            button1 = tk.Button(zapadnia1, text="+", font=50, command=Zapadnie.akcja_plusik1z3)
+            button1.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+            button2 = tk.Button(zapadnia1, text="-", font=50, command=Zapadnie.akcja_minusik1z3)
+            button2.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+            odpowiedz1 = tk.Label(zapadnia1, text="A", font=50, bg="white")
+            odpowiedz1.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+            #global kasa_na_zapadni1
+            kasa_na_zapadni1 = tk.Label(zapadnia1, text=kasa_zapadnia1, font=50, bg="gray")
+            kasa_na_zapadni1.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+            ##########################
+            zapadnia2 = tk.Label(glowne_okno, bg="gray", bd=10)
+            zapadnia2.place(relx=0.50, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+            button3 = tk.Button(zapadnia2, text="+", font=50, command=Zapadnie.akcja_plusik2z3)
+            button3.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+            button4 = tk.Button(zapadnia2, text="-", font=50, command=Zapadnie.akcja_minusik2z3)
+            button4.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+            odpowiedz2 = tk.Label(zapadnia2, text="B", font=50, bg="white")
+            odpowiedz2.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+            #global kasa_na_zapadni2
+            kasa_na_zapadni2 = tk.Label(zapadnia2, text=kasa_zapadnia1, font=50, bg="gray")
+            kasa_na_zapadni2.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+            ###########################
+            zapadnia3 = tk.Label(glowne_okno, bg="gray", bd=10)
+            zapadnia3.place(relx=0.70, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+            button5 = tk.Button(zapadnia3, text="+", font=50, command=Zapadnie.akcja_plusik3z3)
+            button5.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+            button6 = tk.Button(zapadnia3, text="-", font=50, command=Zapadnie.akcja_minusik3z3)
+            button6.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+            odpowiedz3 = tk.Label(zapadnia3, text="C", font=50, bg="white")
+            odpowiedz3.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+            #global kasa_na_zapadni3
+            kasa_na_zapadni3 = tk.Label(zapadnia3, text=kasa_zapadnia1, font=50, bg="gray")
+            kasa_na_zapadni3.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+            ###############################
+        else:
+            ### ETAP 3
+            ######################
+            zapadnia1 = tk.Label(glowne_okno, bg="gray", bd=10)
+            zapadnia1.place(relx=0.40, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+            button1 = tk.Button(zapadnia1, text="+", font=50, command=Zapadnie.akcja_plusik1z2)
+            button1.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+            button2 = tk.Button(zapadnia1, text="-", font=50, command=Zapadnie.akcja_minusik1z2)
+            button2.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+            odpowiedz1 = tk.Label(zapadnia1, text="A", font=50, bg="white")
+            odpowiedz1.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+            # global kasa_na_zapadni1
+            kasa_na_zapadni1 = tk.Label(zapadnia1, text=kasa_zapadnia1, font=50, bg="gray")
+            kasa_na_zapadni1.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+            ##########################    zapadnia 2
+            zapadnia2 = tk.Label(glowne_okno, bg="gray", bd=10)
+            zapadnia2.place(relx=0.60, rely=0.25, relwidth=0.15, relheight=0.35, anchor='n')
+
+            button3 = tk.Button(zapadnia2, text="+", font=50, command=Zapadnie.akcja_plusik2z2)
+            button3.place(relx=0.35, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+            button4 = tk.Button(zapadnia2, text="-", font=50, command=Zapadnie.akcja_minusik2z2)
+            button4.place(relx=0.65, rely=0.7, relwidth=0.3, relheight=0.2, anchor='n')
+
+            odpowiedz2 = tk.Label(zapadnia2, text="B", font=50, bg="white")
+            odpowiedz2.place(relx=0.5, rely=0, relwidth=0.8, relheight=0.3, anchor='n')
+
+            #global kasa_na_zapadni2
+            kasa_na_zapadni2 = tk.Label(zapadnia2, text=kasa_zapadnia1, font=50, bg="gray")
+            kasa_na_zapadni2.place(relx=0.5, rely=0.4, relwidth=0.6, relheight=0.15, anchor='n')
+
+
+
+        ##############################   koniec zapadni
+        global kasa_do_rozlozenia
+        tytul_kasa = tk.Label(glowne_okno, text = "TWOJA KASA:", font=("Arial", 20))
+        tytul_kasa.place(relx=0.5, rely=0.65, relwidth=0.2, relheight=0.1, anchor='n')
+        kasa_do_rozlozenia = tk.Label(glowne_okno, text= kasa_gracza, font=("Arial", 25))
+        kasa_do_rozlozenia.place(relx=0.5, rely=0.75, anchor='n')
+
+        ##############################
+        def utrata_kasy():
+            global poprawna_odp
+            global kasa_gracza
+            global kasa_zapadnia1
+            global kasa_zapadnia2
+            global kasa_zapadnia3
+            global kasa_zapadnia4
+            if poprawna_odp == 1:
+                kasa_gracza = kasa_zapadnia1
+            elif poprawna_odp == 2:
+                kasa_gracza = kasa_zapadnia2
+            elif poprawna_odp == 3:
+                kasa_gracza = kasa_zapadnia3
+            elif poprawna_odp == 4:
+                kasa_gracza = kasa_zapadnia4
+
+        def czy_gracz_ma_hajs():
+            global kasa_gracza
+            if kasa_gracza > 0:
+                return True
+            else:
+                return False
+
+        def wyswietlanie_glowne_okno():
+            glowne_okno.destroy()
+
+        class Timer(tk.Tk):
+            def __init__(self, master=None):
+                tk.Frame.__init__(self, master)
+                self.label = tk.Label(glowne_okno, text="", font=("Comic Sans", 30), fg="blue")
+                self.label.place(relx=0, rely=0)
+                self.remaining = 0
+                self.odliczanie(60)
+
+            def odliczanie(self, remaining=None):
+                if remaining is not None:
+                    self.remaining = remaining
+                if self.remaining <= 0:
+                    self.label.configure(text="Czas upłynął!")
+                    wyswietlanie_glowne_okno()
+                    utrata_kasy()
+                    if czy_gracz_ma_hajs():
+                        global ktore_pytanie
+                        global ile_zapadek
+                        ktore_pytanie += 1
+                        # do zmian-sample code
+                        if ktore_pytanie == 5:
+                            ile_zapadek = 3
+                        elif ktore_pytanie == 8:
+                            ile_zapadek = 2
+                        elif ktore_pytanie == 9:
+                            #### OKNO WYGRANEJ ####
+                            wygrana_okno = tk.Tk()
+                            wygrana_okno.title("Raz w życiu coś Ci się udało")
+                            wygrana_okno.geometry("1024x576")
+
+                            grafika = PhotoImage(file="/Users/mac/Desktop/Postaw na milijon/mrozu_wygrana.png")
+                            grafika_tło = Label(wygrana_okno, image=grafika)
+                            grafika_tło.pack()
+
+                            ##### PRZYCISKI KONCA #####
+                            # baton1 = Button(wygrana_okno, text="Zagraj ponownie")  ### + command ze runnowanie okna z grą
+                            # baton1.place(relx=0.3, rely=0.55, relwidth=0.2, relheight=0.1)
+
+                            baton2 = Button(wygrana_okno, text="Zamknij", font= ("Comic Sans MS", 20, "bold"), command = wygrana_okno.destroy)
+                            baton2.place(relx=0.3, rely=0.60, relwidth=0.2, relheight=0.1)
+
+                            kasa_koniec = Label(wygrana_okno, text = "TWOJA KASA: " + str(kasa_gracza) + " ZŁ", bg = "grey")
+                            kasa_koniec.place(relx=0.3, rely=0.45, relwidth=0.2, relheight=0.1)
+                    else:
+                        #### OKNO PRZEGRANEJ ####
+                        przegrana_okno = tk.Tk()
+                        przegrana_okno.title("Poniosłeś klęskę")
+                        przegrana_okno.geometry("1024x576")
+
+                        grafika = PhotoImage(file="/Users/mac/Desktop/Postaw na milijon/minion_z_wesela.png")
+                        grafika_tło = Label(przegrana_okno, image=grafika)
+                        grafika_tło.pack()
+
+                        ##### PRZYCISKI KONCA #####
+                        # baton1 = Button(przegrana_okno, text="Zagraj ponownie")  ### + command ze runnowanie okna z grą
+                        # baton1.place(relx=0.6, rely=0.5, relwidth=0.2, relheight=0.1)
+
+                        baton2 = Button(przegrana_okno, text="Zamknij", command=przegrana_okno.destroy)
+                        baton2.place(relx=0.6, rely=0.60, relwidth=0.2, relheight=0.1)
+
+                        kasa_koniec = Label(przegrana_okno, text = "TWOJA KASA: " + str(kasa_gracza) + " ZŁ")
+                        kasa_koniec.place(relx=0.6, rely=0.45, relwidth=0.2, relheight=0.1)
+                    # kod do zmian zapadek i decyzji czy gra się skonczyła
+                    glowna_petla()
+                else:
+                    self.label.configure(text="%d" % self.remaining)
+                    self.remaining = self.remaining - 1
+                    self.after(1000, self.odliczanie)
+
+        czas_tytul = Label(glowne_okno)
+        czas_tytul.place(x=0.8, y=0.5)
+        stoper = Timer(master=glowne_okno)
+
+        global poprawna_odp
+        if ktore_pytanie >= 5 and ktore_pytanie < 8:
+            global etap2
+            wybor_pytania = randint(0, len(etap2) - 1)
+            pytanie_4, odp_1, odp_2, odp_3 = etap2[wybor_pytania][0], etap2[wybor_pytania][1], etap2[wybor_pytania][2], etap2[wybor_pytania][3]
+            wydrukowane_pytanie_4 = tk.Label(glowne_okno, text=pytanie_4 + "\n" + "A: " + odp_1[0] + "\n" + "B: " + odp_2[0] + "\n" + "C: " + odp_3[0], font=50)
+            wydrukowane_pytanie_4.place(relx=0.5, rely=0.05, anchor='n')
+            poprawna_odp = [odp_1[1], odp_2[1], odp_3[1]].index(1) + 1
+            del etap2[wybor_pytania]
+
+        elif ktore_pytanie == 8:
+            global etap3
+            wybor_pytania = randint(0, len(etap3) - 1)
+            pytanie_4, odp_1, odp_2 = etap3[wybor_pytania][0], etap3[wybor_pytania][1], etap3[wybor_pytania][2]
+            wydrukowane_pytanie_4 = tk.Label(glowne_okno, text=pytanie_4 + "\n" + "A: " + odp_1[0] + "\n" + "B: " + odp_2[0], font=50)
+            wydrukowane_pytanie_4.place(relx=0.5, rely=0.05, anchor='n')
+            poprawna_odp = [odp_1[1], odp_2[1]].index(1) + 1
+            del etap3[wybor_pytania]
+        else:
+            global etap1
+            wybor_pytania = randint(0, len(etap1) - 1)
+            pytanie_4, odp_1, odp_2, odp_3, odp_4 = etap1[wybor_pytania][0], etap1[wybor_pytania][1], etap1[wybor_pytania][2], etap1[wybor_pytania][3], etap1[wybor_pytania][4]
+            wydrukowane_pytanie_4 = tk.Label(glowne_okno, text=pytanie_4 + "\n" + "A: " + odp_1[0] + "\n" + "B: " + odp_2[0] + "\n" + "C: " + odp_3[0] + "\n" + "D: " + odp_4[0], font=50)
+            wydrukowane_pytanie_4.place(relx=0.5, rely=0.05, anchor='n')
+            poprawna_odp = [odp_1[1], odp_2[1], odp_3[1], odp_4[1]].index(1) + 1
+            del etap1[wybor_pytania]
+
+    ###########################
+    def akcja_zasady():
+        messagebox.showinfo("Zasady gry",
+                            "ZASADY GRY:\n\n Czeka Cię 8 pytań w 3 etapach z różną ilością zapadnii, za każdym razem musisz rozłożyć wszystkie pieniądze w ciągu 60 sekund (inaczej je stracisz), w każdej rundzie jedna zapadnia musi pozostać pusta")
+
+    def akcja_autorki():
+        messagebox.showinfo("Autorki", "Autorki: \n\n Marianna Sikorska \n Julia Moryson \n Beata Nowak")
+
+######### FLAGA RESTARTU ###############
+# restart_gry = False
+# def zmienianie_restartowania():
+#     global restart_gry
+#     restart_gry = True
+#     glowna_petla()
+
+###############################
+
+menu = tk.Tk()
+menu.title("Menu")
+menu.geometry("1024x576")
+kasa_gracza = 1000000
+
+
+def glowna_petla():
+    global menu
+
+    def przyciski_menu(autoprzycisk=0):
+        start_przycisk = Menu()
+        start_przycisk = tk.Button(menu, text="START", font= ("Comic Sans MS", 40, "bold"), command=Menu.akcja_start)
+        start_przycisk.place(relx=0.6, rely=0.3, relwidth=0.2, relheight=0.1, anchor='n')
+
+        zasady_przycisk = Menu()
+        zasady_przycisk = tk.Button(menu, text="ZASADY GRY", font= ("Comic Sans MS", 20), command=Menu.akcja_zasady)
+        zasady_przycisk.place(relx=0.6, rely=0.45, relwidth=0.2, relheight=0.1, anchor='n')
+
+        autorki_przycisk = Menu()
+        autorki_przycisk = tk.Button(menu, text="O AUTORKACH", font= ("Comic Sans MS", 20), command=Menu.akcja_autorki)
+        autorki_przycisk.place(relx=0.6, rely=0.6, relwidth=0.2, relheight=0.1, anchor='n')
+
+        wyjscie_przycisk = Menu()
+        wyjscie_przycisk = tk.Button(menu, text="WYJŚCIE", font= ("Comic Sans MS", 20), command=menu.destroy)
+        wyjscie_przycisk.place(relx=0.6, rely=0.75, relwidth=0.2, relheight=0.1, anchor='n')
+        if autoprzycisk == 1:
+            start_przycisk.invoke()
+
+    try:
+        grafika = PhotoImage(file = "/Users/mac/Desktop/Postaw na milijon/adam_menu.png")
+        grafika_tło = Label(menu, image=grafika)
+        grafika_tło.pack()
+        przyciski_menu()
+    except RuntimeError as error:
+        menu = tk.Tk()
+        menu.title("Menu")
+        menu.geometry("1024x576")
+        grafika = PhotoImage(file = "/Users/mac/Desktop/Postaw na milijon/adam_menu.png")
+        grafika_tło = Label(menu, image=grafika)
+        grafika_tło.pack()
+        # if restart_gry:
+        #     przyciski_menu()
+        #     restart_gry = False
+        # else:
+        przyciski_menu(1)
+
+    menu.mainloop()
+
+
+if __name__ == "__main__":
+    glowna_petla()
