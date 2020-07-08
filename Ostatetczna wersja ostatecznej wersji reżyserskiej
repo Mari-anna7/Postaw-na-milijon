@@ -11,16 +11,25 @@ etap1 = [["Ile jest części „Dziadów”?", ("3",1), ("2",0), ("1",0), ("4",0
                 ["Kto jest głównym bohaterem „Dziadów cz.III”?", ("Konrad",1), ("Kordian",0), ("ksiądz Robak",0), ("Konstanty",0)],
                 ["Która z tych lektur nie jest obowiązkowa?", ("Wesele",0), ("Świtezianka",1), ("Lalka",0), ("Sklepy cynamonowe",0)],
                 ["Ilu mamy polskich laureatów literackiej nagrody Nobla?", ("3",0), ("4",0), ("5",1), ("7",0)],
-                ["Prekursorem jakiego skrótowca był Mickiewicz?", ("xoxo",0), ("lmao",0), ("rolf",0), ("YOLO",1)]]
+                ["Prekursorem jakiego skrótowca był Mickiewicz?", ("xoxo",0), ("lmao",0), ("rolf",0), ("YOLO",1)],
+                ["„Bez serc, bez ducha to…”", ("studentów ludy", 0), ("szkieletów ludy", 1), ("minionów ludy", 0), ("poetów ludy", 0)],
+                ["Kto jest autorem „Eviva l’arte”?", ("Kazimierz", 0), ("       ", 0), ("Tetmajer", 0), ("Kazimierz Przerwa-Tetmajer", 1)]]
 etap2= [["Skąd pochodzi cytat: „Niech się dzieje wola nieba…”?", ("Zemsta",1), ("Świętoszek",0), ("Nie-boska Komedia",0)],
                 ["Prawdziwe nazwisko Bolesława Prusa to:", ("Przemysław Terlecki",0), ("Aleksander Głowacki",1), ("Zenon Jaworski",0)],
                 ["Kto jest autorem „Trenów”?", ("Słowacki",0), ("Konopnicka",0), ("Kochanowski",1)],
                 ["Kto jest autorem „Sonetów Krymskich”?", ("Mickiewicz",1), ("Słowacki",0), ("Wyspiański",0)],
-                ["Z kim flirtował tytułowy Pan Tadeusz?", ("Z Telimeną",0), ("Z Zosią",0), ("Z obiema",1)]]
+                ["Z kim flirtował tytułowy Pan Tadeusz?", ("Z Telimeną",0), ("Z Zosią",0), ("Z obiema",1)],
+                ["Gdzie Romeo spotkał Julię po raz pierwszy?", ("w ogrodzie", 0), ("na balu",1), ("w kościele", 0)],
+                ["Czym wracał do Warszawy Kordian?", ("chumrką", 1), ("osiołkiem jerozolimskim", 0), ("rowerem wodnym", 0)],
+                ["Jakimi słowami witają się poeci?", ("rytm i chwała", 0), ("wers i zwrotka", 0), ("słowo i poezja", 1)],
+                ["Co zbierały Alina i Balladyna?", ("pokemony", 0), ("jakieś tam owoce", 1), ("karteczki z Winx", 0)]]
 etap3 = [["Nazwiskiem którego z poetów sygnowana jest jedna z czołowych polskich uczelni?", ("Mickiewicza",1), ("Słowackiego",0)],
                 ["Jaki jest najlepszy nadmorski ptak?", ("Gosia Andrzejwicz",0), ("Jesiotr",1)],
                 ["Co liże Luna?", ("Jesiotra",0), ("Ścianę",1)],
-                ["Jak Ci poszło?", ("M E G A",1), ("Źle :(((",0)]]
+                ["Jak Ci poszło?", ("M E G A",1), ("Źle :(((",0),
+                ["Dokończ zadnie: „Słowacki…”", ("lubi placki", 0), ("wielkim poetą był", 1)],
+                ["Kto jest prawdziwym autorem wszystkich dzieł Mickiewicza według Tropicieli Prawdy?", ("Mickiewicz", 0), ("Słowacki", 1)]]
+
 
 ile_zapadek = 4
 ktore_pytanie = 1
