@@ -26,7 +26,7 @@ etap2= [["Skąd pochodzi cytat: „Niech się dzieje wola nieba…”?", ("Zemst
 etap3 = [["Nazwiskiem którego z poetów sygnowana jest jedna z czołowych polskich uczelni?", ("Mickiewicza",1), ("Słowackiego",0)],
                 ["Jaki jest najlepszy nadmorski ptak?", ("Gosia Andrzejwicz",0), ("Jesiotr",1)],
                 ["Co liże Luna?", ("Jesiotra",0), ("Ścianę",1)],
-                ["Jak Ci poszło?", ("M E G A",1), ("Źle :(((",0),
+                ["Jak Ci poszło?", ("M E G A",1), ("Źle :(((",0)],
                 ["Dokończ zadnie: „Słowacki…”", ("lubi placki", 0), ("wielkim poetą był", 1)],
                 ["Kto jest prawdziwym autorem wszystkich dzieł Mickiewicza według Tropicieli Prawdy?", ("Mickiewicz", 0), ("Słowacki", 1)]]
 
